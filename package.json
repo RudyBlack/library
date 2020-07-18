@@ -1,8 +1,8 @@
 {
-  "name": "codereview",
+  "name": "library",
   "version": "1.0.0",
-  "description": "�ڵ帮��",
-  "main": "index.js",
+  "description": "",
+  "main": "lib.js",
   "directories": {
     "test": "test"
   },
@@ -11,23 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LudyBlack/codeReview.git"
+    "url": "git+https://github.com/LudyBlack/Dkit.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LudyBlack/codeReview/issues"
+    "url": "https://github.com/LudyBlack/Dkit/issues"
   },
-  "dependencies": {
-    "chai": "^4.2.0",
-    "jquery": "^3.5.1",
-    "supertest": "^4.0.2"
-  },
-  "homepage": "https://github.com/LudyBlack/codeReview#readme",
-  "devDependencies": {
-    "express": "^4.17.1",
-    "jsdom": "16.2.2",
-    "jsdom-global": "3.0.2",
-    "mocha-jsdom": "^2.0.0"
-  }
+  "homepage": "https://github.com/LudyBlack/Dkit#readme"
 }
