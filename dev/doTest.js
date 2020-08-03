@@ -12,9 +12,29 @@ document.body.innerHTML =
 </span>`;
 
 
+describe('getQueryString 테스트',function(){
+	it("쿼리스트링 추출", function () {
+			expect( TestUtil.getQueryString("https://devlive.club5678.com/r_mgnf/dsfdsf/aaa.html?mode=11&sdmfklsdmlf=34534543543") ).to.eql( {mode : "11", sdmfklsdmlf:"34534543543"} );
+	});
 
+	it("쿼리스트링 추출", function () {
+			expect( TestUtil.getQueryString("http://devy-skadudgh.inforex.co.kr/mng_radio/r_conts/live_stat/live_fanBoard_list.html?mode=22&act=memSearch&memNo=84443&memId=alfmen&memSlct=r") ).to.eql( {mode : "22", act:"memSearch", memNo:"84443", memId:"alfmen", memSlct:"r"} );
+	});
 
-describe('sliceString 함수 테스트',function(){
+	it("쿼리스트링 추출 - ?로 시작할 때", function () {
+			expect( TestUtil.getQueryString("?mode=11&sdmfklsdmlf=34534543543") ).to.eql( {mode : "11", sdmfklsdmlf:"34534543543"} );
+	});
+
+	it("쿼리스트링 추출 - &로 시작할 때", function () {
+			expect( TestUtil.getQueryString("&mode=11&sdmfklsdmlf=34534543543") ).to.eql( {mode : "11", sdmfklsdmlf:"34534543543"} );
+	});
+
+	it("쿼리스트링 추출 - ?나 &가 없을때", function () {
+			expect( TestUtil.getQueryString("mode=11&sdmfklsdmlf=34534543543") ).to.not.eql( {mode : "11", sdmfklsdmlf:"34534543543"} );
+	});
+});
+
+describe.skip('sliceString 함수 테스트',function(){
 	it("sliceString은 리턴값이 배열이다.", function () {
 			expect(  Array.isArray( TestUtil.sliceString("1",1) ) ).to.equal( true );
 	});
@@ -26,9 +46,6 @@ describe('sliceString 함수 테스트',function(){
 	});
 	it("sliceString('남현우입니다',6) == ['남현우입니다']", function () {
 			expect( TestUtil.sliceString('남현우입니다',6) ).to.eql( ['남현우입니다'] );
-	});
-	it("sliceString(78787979,0) 에러뱉음", function () {
-			expect( TestUtil.sliceString(78787979,3) ).to.eql( error );
 	});
 });
 describe.skip('getUrlFileName 함수 테스트',function(){

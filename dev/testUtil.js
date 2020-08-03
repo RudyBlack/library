@@ -18,8 +18,13 @@ export let getUrlFileName = function(url){
   return urlSplit[ urlSplit.length - 1 ].split(".")[0];
 }
 
+export function getQueryString(url) {
+    var params = {};
+    url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) { params[key] = value; });
+    return params;
+}
+
 export function sliceString(target, count){
-  if(typeof target !== 'string') throw '첫번째 매개변수는 string이여야합니다.';
   let rtnVal = [];
   let beforeCount = 0;
   let nextCount = count;
@@ -37,4 +42,30 @@ export function sliceString(target, count){
    nextCount = beforeCount + count;
   };
   return rtnVal;
+};
+
+export let compressString = function(string, count){
+  let cnt = 1;
+  let fromIndex = 0;
+  let toIndex = count;
+  let rtnStringVal = "";
+
+  for (var i = 0; i < string.length; i++) {
+    let compareString_A = string.substring(fromIndex, toIndex);
+    let compareString_B = string.substring(toIndex, toIndex + count);
+    if (toIndex >= string.length) {
+      ctn = 1;
+      rtnStringVal = rtnStringVal + (cnt === 1 ? "" : cnt) + compareString_A;
+     break;
+    }
+    fromIndex = toIndex;
+    toIndex += count;
+    if( compareString_A === compareString_B ){
+      cnt += 1;
+    }else{
+      cnt = 1;
+      rtnStringVal = rtnStringVal + (cnt === 1 ? "" : cnt) + compareString_A;
+    }
+  }
+  return rtnStringVal;
 }
