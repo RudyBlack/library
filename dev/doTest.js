@@ -12,4 +12,21 @@ document.body.innerHTML =
 </span>`;
 
 
+describe('makeDomElement 테스트',function(){
+	it("div 생성", function () {
+			expect( TestUtil.makeDomElement({elType : 'div', className : 'hello', type : 'button'}) ).to.not.have.property('type');
+			expect( TestUtil.makeDomElement({elType : 'div', className : 'hello', type : 'button'}) ).to.not.have.property('value');
+			expect( TestUtil.makeDomElement({elType : 'div', className : 'hello', type : 'button'}) ).to.have.property('className');
+	});
 
+	it("input 생성", function () {
+		expect( TestUtil.makeDomElement({elType : 'input', className : 'hello', type : 'button'}) ).to.have.property('type');
+		expect( TestUtil.makeDomElement({elType : 'input', className : 'hello'}) ).to.have.property('className');
+		expect( TestUtil.makeDomElement({elType : 'input', className : 'hello', bgColor : 'blue'}) ).to.not.have.property('bgColor');
+		expect( TestUtil.makeDomElement({elType : 'input', className : 'hello'}) ).to.have.property('value');
+		expect( TestUtil.makeDomElement({elType : 'div', className : 'hello', type : 'button'}) ).to.not.have.property('is');
+		expect( TestUtil.makeDomElement({elType : 'div', className : 'hello', type : 'button'}) ).to.have.property('is');
+	});
+
+
+});

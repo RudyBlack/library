@@ -7,11 +7,9 @@ const makeDomElement = (params) => {
 
 	const $el = document.createElement(params.elType);
 	for(let key in params){
-		$el[key] = params[key];
+		if(typeof $el[key] !== 'undefined') $el[key] = params[key];
 	}
 	return $el;
 };
 
 export {makeDomElement}
-
-
