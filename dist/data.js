@@ -1,22 +1,22 @@
 const StateManagement = ((initData) => {
 	const observer = new Map();
-const dataStore = new Proxy(initData, {
-	get(target, prop, receiver){
-		return target[prop];
-	},
-	set(target, prop, receiver){
-		target[prop] = receiver;
+	const dataStore = new Proxy(initData, {
+		get(target, prop, receiver){
+			return target[prop];
+		},
+		set(target, prop, receiver){
+			target[prop] = receiver;
 
-		if(observer.has(prop)) {
-			observer.get(prop).forEach((callback, key, map)=>{
-				callback(target[prop])
-		});
-		}
+			if(observer.has(prop)) {
+				observer.get(prop).forEach((callback, key, map)=>{
+					callback(target[prop])
+			});
+			}
 
 
-		return true;
-	},
-});
+			return true;
+		},
+	});
 
 const get = (key) => {
 	return dataStore[key];

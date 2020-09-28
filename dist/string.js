@@ -1,4 +1,4 @@
-function sliceString(target, count){
+const sliceString = function(target, count){
 	let rtnVal = [];
 	let beforeCount = 0;
 	let nextCount = count;
@@ -18,7 +18,7 @@ function sliceString(target, count){
 	return rtnVal;
 };
 
-let compressString = function(string, count){
+const compressString = function(string, count){
 	let cnt = 1;
 	let fromIndex = 0;
 	let toIndex = count;
@@ -42,4 +42,6 @@ let compressString = function(string, count){
 		}
 	}
 	return rtnStringVal;
-}
+};
+
+export {sliceString, compressString}

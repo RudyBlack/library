@@ -10,6 +10,8 @@ const makeDomElement = (params) => {
 		$el[key] = params[key];
 	}
 	return $el;
-}
+};
+
+export {makeDomElement}
 
 
