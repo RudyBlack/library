@@ -9,16 +9,8 @@
   "scripts": {
     "test": "mocha -r @babel/register dev/doTest.js --watch --color"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LudyBlack/Dkit.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LudyBlack/Dkit/issues"
-  },
-  "homepage": "https://github.com/LudyBlack/Dkit#readme",
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",
