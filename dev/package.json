@@ -1,0 +1,31 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "doTest.js",
+  "directories": {
+    "dev": "doTest"
+  },
+  "scripts": {
+    "test": "mocha -r @babel/register doTest.js --watch --color"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/register": "^7.10.5",
+    "chai": "^4.2.0",
+    "jquery": "^3.5.1",
+    "jsdom": "^16.3.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^8.0.1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ]
+  }
+}
