@@ -7,10 +7,12 @@ import * as dataUtil from './testCode/data.js';
 import * as domUtil from './testCode/dom.js';
 import * as httpUtil from './testCode/http.js';
 import * as stringUtil from './testCode/string.js';
+import * as assetString from './testCode/asset/assetString.js';
+
 
 const jsdom = require('jsdom-global')();
 
-const { expect } = chai;
+const { expect, assert } = chai;
 const should = chai.should();
 
 /* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
@@ -18,7 +20,7 @@ const should = chai.should();
 document.body.innerHTML = '<span id="target" class="target"><span class="fkfk"></span></span>';
 
 /* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
-const test = {
+var testCode = {
   domUtil: {
     makeDomElement: () => {
       expect(domUtil.makeDomElement({ elType: 'div', className: 'hello', type: 'button' })).to.not.have.property('type');
@@ -56,16 +58,23 @@ const test = {
     compressString: () => {
 
     },
+      
+   getObjectString: () => {
+       assert.isString( stringUtil.getObjectString(assetString.a, 'stats'), 'is String');
+       expect(stringUtil.getObjectString(assetString.a, 'statsd')).to.equal("");
+       assert.isArray( stringUtil.getObjectString(assetString.a), 'is String');
+       expect(stringUtil.getObjectString(assetString.a, 'test1')).to.equal("{a:1,a:2,a:3};");
+       expect(stringUtil.getObjectString(assetString.a, 'test')).to.equal("");
+   },
   },
 };
 
-for (const key in test) {
-  describe(key, () => {
-    for (const method in test[key]) {
-      console.log(method);
 
+for (const key in testCode) {
+  describe(key, () => {
+    for (const method in testCode[key]) {
       it(method, () => {
-        test[key][method]();
+        testCode[key][method]();
       });
     }
   });
