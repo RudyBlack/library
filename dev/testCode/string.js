@@ -43,3 +43,23 @@ export const compressString = function (string, count) {
   }
   return rtnStringVal;
 };
+
+export const getObjectString = (target, findObj) => {
+    var rtnVal = "";
+    
+    if(findObj){
+        var regExp = new RegExp(findObj + '[\\s]+?=[\\s]+?\\{[\\s\\S]+?\\}\\;', 'g');
+
+        let regMatch = target.match(regExp);
+
+        if(regMatch){
+            rtnVal = regMatch[0].match(new RegExp('\\{[\\s\\S]+?\\}\\;','g'))[0];
+        } 
+        
+    }else{
+        var regExp = new RegExp('\\{.*\\}', 'g');
+         if(target.match(regExp)) rtnVal = target.match(regExp);
+    }
+    
+    return rtnVal;
+}
