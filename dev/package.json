@@ -8,7 +8,8 @@
   },
   "scripts": {
     "lint": "eslint ./index.js --fix",
-    "test": "mocha -r @babel/register index.js --watch --color"
+    "test": "mocha -r @babel/register index.js",
+    "test-json": "mocha -r @babel/register index.js --reporter json"
   },
   "author": "",
   "license": "ISC",
@@ -25,12 +26,12 @@
     "jquery": "^3.5.1",
     "jsdom": "^16.3.0",
     "jsdom-global": "^3.0.2",
-    "mocha": "^8.0.1"
+    "mocha": "^8.0.1",
+    "mochawesome": "^6.1.1"
   },
   "babel": {
     "presets": [
       "@babel/env"
     ]
-  },
-  "dependencies": {}
+  }
 }
