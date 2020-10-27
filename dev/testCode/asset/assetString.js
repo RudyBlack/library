@@ -89,3 +89,204 @@ for (const key in testCode) {
 }
 `
 
+const weirdJsonData = `
+>>dsfdsf
+>>sdfdsfdfsd
+{
+  "stats": {
+    "suites": 3,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-10-14T09:19:11.820Z",
+    "end": "2020-10-14T09:19:11.836Z",
+    "duration": 16,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6e09172f-a754-4906-b917-55ade895682c",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "726841a6-040e-443d-b178-8ab29a85c7ba",
+          "title": "domUtil",
+          "fullFile": "/workspace/jsTestContainer/library/dev/index.js",
+          "file": "/index.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "makeDomElement",
+              "fullTitle": "domUtil makeDomElement",
+              "timedOut": false,
+              "duration": 8,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "testCode[key][method]();",
+              "err": {},
+              "uuid": "418b0c58-610d-452b-ba62-b4ad673548f3",
+              "parentUUID": "726841a6-040e-443d-b178-8ab29a85c7ba",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "418b0c58-610d-452b-ba62-b4ad673548f3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "0ffb9007-1862-4f82-8319-3f5ebc433e86",
+          "title": "dataUtil",
+          "fullFile": "/workspace/jsTestContainer/library/dev/index.js",
+          "file": "/index.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "StateManagement",
+              "fullTitle": "dataUtil StateManagement",
+              "timedOut": false,
+              "duration": 1,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "testCode[key][method]();",
+              "err": {},
+              "uuid": "df8df3fb-f6a3-4ddc-bb15-5c758a368782",
+              "parentUUID": "0ffb9007-1862-4f82-8319-3f5ebc433e86",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "df8df3fb-f6a3-4ddc-bb15-5c758a368782"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "a25fa770-6072-4923-8823-3dd39701507f",
+          "title": "stringUtil",
+          "fullFile": "/workspace/jsTestContainer/library/dev/index.js",
+          "file": "/index.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "sliceString",
+              "fullTitle": "stringUtil sliceString",
+              "timedOut": false,
+              "duration": 2,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "testCode[key][method]();",
+              "err": {},
+              "uuid": "04a2913a-5cad-4cae-9cd2-db2978c2552d",
+              "parentUUID": "a25fa770-6072-4923-8823-3dd39701507f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "compressString",
+              "fullTitle": "stringUtil compressString",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "testCode[key][method]();",
+              "err": {},
+              "uuid": "7e153d17-070c-40cc-9aa2-4b69404d9a91",
+              "parentUUID": "a25fa770-6072-4923-8823-3dd39701507f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "04a2913a-5cad-4cae-9cd2-db2978c2552d",
+            "7e153d17-070c-40cc-9aa2-4b69404d9a91"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "8.1.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.1.0"
+    }
+  }
+}`
+
