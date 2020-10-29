@@ -1,4 +1,4 @@
-const makeDomElement = (params) => {
+export const makeDomElement = (params) => {
   if (typeof params === 'string') {
     const template = document.createElement('template');
     template.innerHTML = params;
@@ -12,4 +12,3 @@ const makeDomElement = (params) => {
   return $el;
 };
 
-export { makeDomElement };

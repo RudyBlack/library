@@ -21,8 +21,8 @@ document.body.innerHTML = '<span id="target" class="target"><span class="fkfk"><
 
 /* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
 var testCode = {
-  domUtil: {
-    makeDomElement: () => {
+  "domUtil": {
+    "makeDomElement": () => {
       expect(domUtil.makeDomElement({ elType: 'div', className: 'hello', type: 'button' })).to.not.have.property('type');
       expect(domUtil.makeDomElement({ elType: 'div', className: 'hello', type: 'button' })).to.not.have.property('valude');
       expect(domUtil.makeDomElement({ elType: 'div', className: 'hello', type: 'button' })).to.have.property('className');
@@ -33,9 +33,9 @@ var testCode = {
       expect(domUtil.makeDomElement({ elType: 'div', className: 'hello', type: 'button' })).to.not.have.property('is');
     },
   },
-  httpUtil: {},
-  dataUtil: {
-    StateManagement: () => {
+  "httpUtil": {},
+  "dataUtil": {
+    "StateManagement": () => {
       const stateManagement = dataUtil.StateManagement;
       stateManagement.set('hello', 1);
       stateManagement.set('hello', 2);
@@ -47,25 +47,30 @@ var testCode = {
       expect(stateManagement.get('Array2')).to.have.lengthOf(5);
     },
   },
-  stringUtil: {
-    sliceString: () => {
+  "stringUtil": {
+    "sliceString": () => {
       expect(stringUtil.sliceString('hello', 1)).to.have.lengthOf(5);
       expect(stringUtil.sliceString('hello', 4)).to.have.lengthOf(2);
       expect(stringUtil.sliceString('hello', 6)).to.have.lengthOf(1);
       expect(stringUtil.sliceString('hello', 0)).to.have.lengthOf(1);
       expect(stringUtil.sliceString('[]', 2)).to.eql(['[]']);
     },
-    compressString: () => {
+    "compressString": () => {
 
     },
       
-   getObjectString: () => {
+   "getObjectString": () => {
        assert.isString( stringUtil.getObjectString(assetString.a, 'stats'), 'is String');
        expect(stringUtil.getObjectString(assetString.a, 'statsd')).to.equal("");
        assert.isArray( stringUtil.getObjectString(assetString.a), 'is String');
        expect(stringUtil.getObjectString(assetString.a, 'test1')).to.equal("{a:1,a:2,a:3};");
        expect(stringUtil.getObjectString(assetString.a, 'test')).to.equal("");
    },
+  "getJsonString" : () => {
+      assert.isNotString( stringUtil.getJsonString(assetString.a), 'is String');
+      console.log(stringUtil.getJsonString(assetString.weirdJsonData));
+  },
+      
   },
 };
 

@@ -8,8 +8,9 @@
   },
   "scripts": {
     "lint": "eslint ./index.js --fix",
-    "test": "mocha -r @babel/register index.js",
-    "test-json": "mocha -r @babel/register index.js --reporter json"
+    "test": "mocha -r @babel/register dev/index.js",
+    "test-json": "mocha -r @babel/register dev/index.js --reporter json",
+    "web": "node dev/nodeServer.js"
   },
   "author": "",
   "license": "ISC",
@@ -27,7 +28,8 @@
     "jsdom": "^16.3.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^8.0.1",
-    "mochawesome": "^6.1.1"
+    "mochawesome": "^6.1.1",
+    "webpack": "^5.3.2"
   },
   "babel": {
     "presets": [

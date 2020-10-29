@@ -1,16 +1,12 @@
-const { exec } = require('child_process')
+const { execSync, spawnSync, exec } = require('child_process')
+
 const fs  = require('fs')
 
 const 커맨드실행 = (command) => {
-    exec('npm test', (error, stdout, stderr) => {
-        if (error) {
-            console.log(`error: ${error.message}`);
-            return false;
-        }
-    });
+   return execSync(command, {'encoding' : 'utf8'});
 };
 
-const 파일읽기 = async (path) => {
+const 파일읽기 = (path) => {
     return fs.readFileSync(path, 'utf8', (err, data) => {
         if (err) throw err;
         let rtnData = data;
@@ -18,27 +14,61 @@ const 파일읽기 = async (path) => {
     });
 };
 
-// 테스트함수명 추출
-// 테스트 함수명을 각 파일에서 찾기
-// 함수 찾아서 버퍼에 저장
-// dist폴더에서 배포.js 파일에 쓰기
+
+const 함수명추출 = (target) => {
+    return target.match(/describe\([\s\S]*?\}\)\;\s\}\)\;/g).map((cur,index)=>{
+        let parseVal = cur.match(/['"].*['"]/g);
+        
+        let rtnVal = {
+            [parseVal[0]] :  cur.match(/it\(['"].*['"]/g)
+        }
+        // return parseVal[0].match(/[a-z].*[a-z]/g)[0];
+    })
+}
+
+const getObjectString = (target, findObj) => {
+    var rtnVal = "";
+    
+    if(findObj){
+        var regExp = new RegExp(findObj + '[\\s]+?=[\\s]+?\\{[\\s\\S]+?\\}\\;[^"]', 'g');
+
+        let regMatch = target.match(regExp);
+
+        if(regMatch){
+            rtnVal = regMatch[0].match(new RegExp('\\{[\\s\\S]+?\\}\\;[^"]','g'))[0];
+        } 
+        
+    }else{
+        var regExp = new RegExp('\\{.*\\}', 'g');
+         if(target.match(regExp)) rtnVal = target.match(regExp);
+    }
+    
+    return rtnVal;
+}
+
+const getJsonString = (target) => {
+var rtnVal = "";
+   var regExp = new RegExp('\\{.*\\}', 'g');
+   if(target.match(regExp)) rtnVal = target.match(regExp);
+    return rtnVal;
+}
+
+
 
 
 /* ㅡㅡㅡㅡㅡㅡㅡㅡ */
 
-const 함수명추출 = (target) => {
-    return target.match(/describe\([\s\S]*?\}\)\;\s\}\)\;/g).map((cur,index)=>{
-        
-        console.log(cur);
-        // let parseVal = cur.match(/['"].*['"]/g);
-        // return parseVal[0].match(/[a-z].*[a-z]/g)[0];
-    })
-}
 async function test(){
-    let hello = await 파일읽기('./dev/doTest.js');    
+    // let hello = await 파일읽기('./dev/index.js');    
+    // console.log(객체문자열추출(hello, 'test'));
+    let commandExe = await 커맨드실행('npm run-script test-json');
     
-    console.log(함수명추출(hello));
-    
+    console.log(commandExe.sp);
+    return;
+    if(commandExe) {
+        let testVal = getObjectString(파일읽기('../dev/index.js'), 'testCode');
+        console.log(JSON.parse(testVal));
+    }
 };test();
     
 
