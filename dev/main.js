@@ -5,5 +5,3 @@ import * as httpUtil from './testCode/http.js';
 import * as stringUtil from './testCode/string.js';
 import * as assetString from './testCode/asset/assetString.js';
 
-
-//테스트할 함수.

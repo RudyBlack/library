@@ -47,10 +47,9 @@ const getObjectString = (target, findObj) => {
 }
 
 const getJsonString = (target) => {
-var rtnVal = "";
-   var regExp = new RegExp('\\{.*\\}', 'g');
-   if(target.match(regExp)) rtnVal = target.match(regExp);
-    return rtnVal;
+ var regExp = new RegExp(/\{\n[\s\S]*\}/, 'g');
+    var match = target.match(regExp); 
+    return match;
 }
 
 
@@ -58,18 +57,47 @@ var rtnVal = "";
 
 /* ㅡㅡㅡㅡㅡㅡㅡㅡ */
 
+<<<<<<< HEAD
 async function test(){
+<<<<<<< HEAD
     // let hello = await 파일읽기('./dev/index.js');    
     // console.log(객체문자열추출(hello, 'test'));
-    let commandExe = await 커맨드실행('npm run-script test-json');
+    let commandExe = await 커맨드실행('npm run test-json');
     
-    console.log(commandExe.sp);
+    
+    let jsonObj = eval( JSON.parse(getJsonString(commandExe)) );
+    console.log(jsonObj.passes);
+=======
+    let commandExe = await 커맨드실행('npm run test-json');
+=======
+function test(){
+    // let commandExe = await 커맨드실행('npm run test-json');
+>>>>>>> ca3c164... use babel/register
+    
+    // let jsonObj = eval( JSON.parse(getJsonString(commandExe)) );
+    // let passedCode = jsonObj.passes.map((cur, index) => {
+    //     return cur.fullTitle.split(' ');
+    // })
+    
+    // console.log(passedCode);
+    
+    
+    //웹팩으로 번들링 해서 가져온다.
+    const lib = require('../dev/testCode/index.js');
+    
+<<<<<<< HEAD
+    console.log(passedCode);
+>>>>>>> 1c50e90... get test passes testCode
+=======
+    console.log(lib.arrayUtil.isValidArray);
+    console.log(lib.dataUtil);
+
+>>>>>>> ca3c164... use babel/register
     return;
-    if(commandExe) {
-        let testVal = getObjectString(파일읽기('../dev/index.js'), 'testCode');
-        console.log(JSON.parse(testVal));
-    }
-};test();
+    
+};
+
+test();
     
 
 

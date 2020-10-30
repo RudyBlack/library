@@ -7,10 +7,19 @@
     "dev": "index"
   },
   "scripts": {
-    "lint": "eslint ./index.js --fix",
-    "test": "mocha -r @babel/register dev/index.js",
-    "test-json": "mocha -r @babel/register dev/index.js --reporter json",
+    "lint": "eslint dev/test.js --fix",
+    "test": "mocha -r @babel/register dev/test.js",
+    "test-json": "mocha -r @babel/register dev/test.js --reporter json",
+<<<<<<< HEAD
     "web": "node dev/nodeServer.js"
+=======
+    "web": "node dev/nodeServer.js",
+<<<<<<< HEAD
+      "build" : "node build/build.js"
+>>>>>>> 1c50e90... get test passes testCode
+=======
+    "build": "node -r @babel/register build/build.js"
+>>>>>>> ca3c164... use babel/register
   },
   "author": "",
   "license": "ISC",
@@ -29,7 +38,8 @@
     "jsdom-global": "^3.0.2",
     "mocha": "^8.0.1",
     "mochawesome": "^6.1.1",
-    "webpack": "^5.3.2"
+    "webpack": "^5.3.2",
+    "webpack-cli": "^4.1.0"
   },
   "babel": {
     "presets": [

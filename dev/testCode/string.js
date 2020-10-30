@@ -62,13 +62,15 @@ export const getObjectString = (target, findObj) => {
     }
     
     return rtnVal;
-}
+};
 
 export const getJsonString = (target) => {
     
-    var regExp = new RegExp(/{\n[\s\S]*\}/, 'g');
-    if(typeof target.match(regExp) !== 'undefined') return target.match(regExp)[0];
+    var regExp = new RegExp(/\{\n[\s\S]*\}/, 'g');
+    var match = target.match(regExp); 
+    return match;
     
-}
+};
+
 
 
