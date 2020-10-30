@@ -47,10 +47,9 @@ const getObjectString = (target, findObj) => {
 }
 
 const getJsonString = (target) => {
-var rtnVal = "";
-   var regExp = new RegExp('\\{.*\\}', 'g');
-   if(target.match(regExp)) rtnVal = target.match(regExp);
-    return rtnVal;
+ var regExp = new RegExp(/\{\n[\s\S]*\}/, 'g');
+    var match = target.match(regExp); 
+    return match;
 }
 
 
@@ -61,9 +60,11 @@ var rtnVal = "";
 async function test(){
     // let hello = await 파일읽기('./dev/index.js');    
     // console.log(객체문자열추출(hello, 'test'));
-    let commandExe = await 커맨드실행('npm run-script test-json');
+    let commandExe = await 커맨드실행('npm run test-json');
     
-    console.log(commandExe.sp);
+    
+    let jsonObj = eval( JSON.parse(getJsonString(commandExe)) );
+    console.log(jsonObj.passes);
     return;
     if(commandExe) {
         let testVal = getObjectString(파일읽기('../dev/index.js'), 'testCode');

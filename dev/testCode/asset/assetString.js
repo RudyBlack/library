@@ -89,7 +89,7 @@ for (const key in testCode) {
 }
 `
 
-const weirdJsonData = `
+export const weirdJsonData = `
 >>dsfdsf
 >>sdfdsfdfsd
 {

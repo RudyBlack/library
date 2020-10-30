@@ -7,9 +7,9 @@
     "dev": "index"
   },
   "scripts": {
-    "lint": "eslint ./index.js --fix",
-    "test": "mocha -r @babel/register dev/index.js",
-    "test-json": "mocha -r @babel/register dev/index.js --reporter json",
+    "lint": "eslint dev/test.js --fix",
+    "test": "mocha -r @babel/register dev/test.js",
+    "test-json": "mocha -r @babel/register dev/test.js --reporter json",
     "web": "node dev/nodeServer.js"
   },
   "author": "",
