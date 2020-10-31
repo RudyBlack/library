@@ -56,6 +56,7 @@ const getJsonString = (target) => {
 
 
 /* ㅡㅡㅡㅡㅡㅡㅡㅡ */
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 async function test(){
@@ -78,13 +79,23 @@ function test(){
     // let passedCode = jsonObj.passes.map((cur, index) => {
     //     return cur.fullTitle.split(' ');
     // })
+=======
+ const test = async () => {
+    let commandExe = await 커맨드실행('npm run test-json');
+>>>>>>> 7affdcf... get dist code
     
-    // console.log(passedCode);
+    let jsonObj = eval( JSON.parse(getJsonString(commandExe)) );
+    let passedCode = jsonObj.passes.map((cur, index) => {
+        return cur.fullTitle.split(' ');
+    })
     
     
-    //웹팩으로 번들링 해서 가져온다.
-    const lib = require('../dev/testCode/index.js');
+    const testCode = require('../dev/testCode/index.js'); 
+    const distCode = passedCode.map( (cur) => {
+        return testCode[cur[0]][cur[1]];
+    });
     
+<<<<<<< HEAD
 <<<<<<< HEAD
     console.log(passedCode);
 >>>>>>> 1c50e90... get test passes testCode
@@ -94,6 +105,9 @@ function test(){
 
 >>>>>>> ca3c164... use babel/register
     return;
+=======
+    console.log(distCode);
+>>>>>>> 7affdcf... get dist code
     
 };
 
