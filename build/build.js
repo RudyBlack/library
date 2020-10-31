@@ -65,6 +65,7 @@ async function test(){
     // console.log(객체문자열추출(hello, 'test'));
     let commandExe = await 커맨드실행('npm run test-json');
     
+<<<<<<< HEAD
     
     let jsonObj = eval( JSON.parse(getJsonString(commandExe)) );
     console.log(jsonObj.passes);
@@ -104,6 +105,11 @@ function test(){
     console.log(lib.dataUtil);
 
 >>>>>>> ca3c164... use babel/register
+=======
+    
+    let jsonObj = eval( JSON.parse(getJsonString(commandExe)) );
+    console.log(jsonObj.passes);
+>>>>>>> d4a15713462d3a279dd48493eac0e652c6438e26
     return;
 =======
     console.log(distCode);

@@ -4,9 +4,15 @@ import {
   domUtil,
   httpUtil,
   stringUtil,
+<<<<<<< HEAD
 } from './testCode/index.js';
 
 import * as assetString from './testCode/asset/assetString.js';
+=======
+  assetString,
+} from './testCode/index.js';
+
+>>>>>>> d4a15713462d3a279dd48493eac0e652c6438e26
 if (typeof window === 'undefined') {
   const jsdom = require('jsdom-global')();
   const chai = require('chai');
@@ -44,6 +50,7 @@ if (typeof window === 'undefined') {
     },
     httpUtil: {},
     dataUtil: {
+<<<<<<< HEAD
       // StateManagement: () => {
       //   const stateManagement = dataUtil.StateManagement;
       //   stateManagement.set('hello', 1);
@@ -55,6 +62,19 @@ if (typeof window === 'undefined') {
       //   expect(stateManagement.get('Array')).to.have.lengthOf(0);
       //   expect(stateManagement.get('Array2')).to.have.lengthOf(5);
       // },
+=======
+      StateManagement: () => {
+        const stateManagement = dataUtil.StateManagement;
+        stateManagement.set('hello', 1);
+        stateManagement.set('hello', 2);
+        stateManagement.set('Array', []);
+        stateManagement.set('Array2', [1, 2, 3, 4, 5]);
+
+        expect(stateManagement.get('hello')).to.equal(2);
+        expect(stateManagement.get('Array')).to.have.lengthOf(0);
+        expect(stateManagement.get('Array2')).to.have.lengthOf(5);
+      },
+>>>>>>> d4a15713462d3a279dd48493eac0e652c6438e26
     },
     stringUtil: {
       sliceString: () => {
