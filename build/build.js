@@ -70,8 +70,10 @@ const getJsonString = (target) => {
         return testCode[cur[0]][cur[1]];
     });
     
-    console.log(distCode);
-    
+     fs.writeFile('dist/library.js', distCode, 'utf8', function(err){
+      if (err) return console.log(err);
+      console.log('write dist code');       
+     })
 };
 
 test();
