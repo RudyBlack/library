@@ -68,8 +68,8 @@ const getJsonString = (target) => {
     const testCode = require('../dev/testCode/index.js'); 
     const distCode = passedCode.map( (cur) => {
         return testCode[cur[0]][cur[1]];
-    });
-    
+    }).join(";\n");
+     
      fs.writeFile('dist/library.js', distCode, 'utf8', function(err){
       if (err) return console.log(err);
       console.log('write dist code');       
