@@ -42,19 +42,20 @@ if (typeof window === 'undefined') {
         ).to.not.have.property('is');
       },
     },
-    httpUtil: {},
+    httpUtil: {
+        getQueryString : () => {
+            let url = 'https://www.youtube.com/watch?v=BYbgopx44vo';
+            let url1 = 'https://ide-run.goorm.io/workspace/jsTestContainer?language=kor#g_window_1604283696776';
+            let url2 = 'https://test.html/clubradio/issues';
+            assert( typeof httpUtil.getQueryString(url) == 'object', 'return type is Object');
+            assert.notEqual( httpUtil.getQueryString(url), {v:'BYbgopx44vo'}, 'value check');
+            assert( httpUtil.getQueryString(url).v === 'BYbgopx44vo', 'return value v is BYbgopx44vo');
+            assert.isObject(  httpUtil.getQueryString(url2), 'return value is Object' );
+            assert.property( httpUtil.getQueryString(url), 'v' );
+        }
+    },
     dataUtil: {
-      // StateManagement: () => {
-      //   const stateManagement = dataUtil.StateManagement;
-      //   stateManagement.set('hello', 1);
-      //   stateManagement.set('hello', 2);
-      //   stateManagement.set('Array', []);
-      //   stateManagement.set('Array2', [1, 2, 3, 4, 5]);
-
-      //   expect(stateManagement.get('hello')).to.equal(2);
-      //   expect(stateManagement.get('Array')).to.have.lengthOf(0);
-      //   expect(stateManagement.get('Array2')).to.have.lengthOf(5);
-      // },
+      
     },
     stringUtil: {
       sliceString: () => {
@@ -91,9 +92,18 @@ if (typeof window === 'undefined') {
   }
 }
 
-/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
-document.body.innerHTML = '<span id="target" class="target"><span class="fkfk"></span></span>';
+/* DOM ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+// document.body.innerHTML = '<span id="target" class="target"><span class="fkfk"></span></span>';
 
-/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+/* WEB TEST ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+let url = 'https://www.youtube.com/watch?v=BYbgopx44vo';
+let url1 = 'https://ide-run.goorm.io/workspace/jsTestContainer?language=kor#g_window_1604283696776';
+let url2 = 'https://test.html/clubradio/issues';
+
+let querystring = httpUtil.getQueryString(url2);
+
+
+console.log(querystring);
 
 /* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */

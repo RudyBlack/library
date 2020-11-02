@@ -4,8 +4,4 @@ export const getQueryString = function (url) {
   return params;
 };
 
-const getUrlFileName = function (url) {
-  const urlSplit = url.split('/');
-  return urlSplit[urlSplit.length - 1].split('.')[0];
-};
 
