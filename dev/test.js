@@ -14,6 +14,20 @@ if (typeof window === 'undefined') {
   const $ = require('jquery');
 
   const testCode = {
+  arrayUtil: {
+    isEmptyArray : () => {
+        assert.isNotArray(arrayUtil.isEmptyArray([]), 'return is not array');
+        assert.isTrue(arrayUtil.isEmptyArray([]), 'true');
+        
+        assert.isNotTrue(arrayUtil.isEmptyArray([1,2,3]), 'not empty');
+        assert.isNotTrue(arrayUtil.isEmptyArray([""]), 'not empty');
+        assert.isNotTrue(arrayUtil.isEmptyArray([0]), 'not empty');
+        assert.isNotTrue(arrayUtil.isEmptyArray([null]), 'not empty');
+        assert.isNotTrue(arrayUtil.isEmptyArray(['undefined']), 'not empty');
+        assert.isNotTrue(arrayUtil.isEmptyArray([undefined]), 'not empty');
+        assert.isNotTrue(arrayUtil.isEmptyArray([NaN]), 'not empty');
+    }
+  },
     domUtil: {
       makeDomElement: () => {
         expect(
