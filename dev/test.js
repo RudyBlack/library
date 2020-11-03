@@ -107,7 +107,7 @@ if (typeof window === 'undefined') {
 }
 
 /* DOM ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
-// document.body.innerHTML = '<span id="target" class="target"><span class="fkfk"></span></span>';
+
 
 /* WEB TEST ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
 
@@ -117,7 +117,10 @@ let url2 = 'https://test.html/clubradio/issues';
 
 let querystring = httpUtil.getQueryString(url2);
 
+let $div = document.getElementsByTagName('div')[0];
 
-console.log(querystring);
+
+domUtil.getAttr($div);
+console.log( domUtil.getAttr($div, 'style') );
 
 /* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
