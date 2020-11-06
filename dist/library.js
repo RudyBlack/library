@@ -1,3 +1,6 @@
+function isEmptyArray(target) {
+  return target && target.constructor === Array && target.length === 0;
+};
 function makeDomElement(params) {
   if (typeof params === 'string') {
     var template = document.createElement('template');

@@ -2,19 +2,13 @@
     "name": "library",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
-    "directories": {
-        "dev": "index"
-    },
     "scripts": {
         "lint": "eslint dev/test.js --fix",
         "test": "mocha -r @babel/register dev/test.js",
         "test-json": "mocha -r @babel/register dev/test.js --reporter json",
-        "web": "node dev/nodeServer.js",
+        "webTest": "node dev/webTest/backend/app.js",
         "build": "node -r @babel/register build/build.js"
     },
-    "author": "",
-    "license": "ISC",
     "devDependencies": {
         "@babel/cli": "^7.10.5",
         "@babel/core": "^7.10.5",
@@ -25,6 +19,7 @@
         "eslint": "^7.11.0",
         "eslint-config-airbnb-base": "^14.2.0",
         "eslint-plugin-import": "^2.22.1",
+        "express": "^4.17.1",
         "jquery": "^3.5.1",
         "jsdom": "^16.3.0",
         "jsdom-global": "^3.0.2",
@@ -45,6 +40,8 @@
                 }
             ]
         ],
-        "plugins": ["@babel/plugin-transform-arrow-functions"]
+        "plugins": [
+            "@babel/plugin-transform-arrow-functions"
+        ]
     }
 }
