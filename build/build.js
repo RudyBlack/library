@@ -33,7 +33,7 @@ const makeDist = (distCode) => {
     const testCode = require('../dev/testCode/index.js');
     
      getTestPassCode().then((testPassCode) => {
-        const distCode = testPassCode.map((cur) => testCode[cur[0]][cur[1]]).join(';\n');
+        const distCode = testPassCode.map((cur) => testCode[cur[0]][cur[1]]).join(';\n\n');
         makeDist(distCode);
     });
 })();

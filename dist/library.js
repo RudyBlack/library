@@ -1,6 +1,7 @@
 function isEmptyArray(target) {
   return target && target.constructor === Array && target.length === 0;
 };
+
 function makeDomElement(params) {
   if (typeof params === 'string') {
     var template = document.createElement('template');
@@ -16,6 +17,7 @@ function makeDomElement(params) {
 
   return $el;
 };
+
 function getQueryString(url) {
   var params = {};
   url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (str, key, value) {
@@ -23,6 +25,17 @@ function getQueryString(url) {
   });
   return params;
 };
+
+function promiseMap(vals, callback) {
+  return Promise.all(vals.map(function (val) {
+    return Promise.resolve(val).then(function (result) {
+      return new Promise(function (resolve) {
+        resolve(callback(result));
+      });
+    });
+  }));
+};
+
 function sliceString(target, count) {
   var rtnVal = [];
   var beforeCount = 0;
@@ -46,6 +59,7 @@ function sliceString(target, count) {
 
   return rtnVal;
 };
+
 function getObjectString(target, findObj) {
   var rtnVal = "";
 
@@ -63,6 +77,7 @@ function getObjectString(target, findObj) {
 
   return rtnVal;
 };
+
 function getJsonString(target) {
   var regExp = new RegExp(/\{\n[\s\S]*\}/, 'g');
   var match = target.match(regExp);

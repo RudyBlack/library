@@ -4,4 +4,14 @@ export const getQueryString = function (url) {
   return params;
 };
 
-
+export const promiseMap = function (vals, callback) {
+    return Promise.all(
+        vals.map(function (val) {
+            return Promise.resolve(val).then((result) => {
+                return new Promise((resolve) => {
+                    resolve(callback(result));
+                });
+            });
+        })
+    );
+};

@@ -1,6 +1,8 @@
 import { arrayUtil, dataUtil, domUtil, httpUtil, stringUtil } from './testCode/index.js';
-import * as assetString from './asset/assetString.js';
+import * as asset from './asset/index.js';
 
+const assetString = asset.assetString;
+const assetObject = asset.assetObject;
 const jsdom = require('jsdom-global')();
 const chai = require('chai');
 const { expect, assert, should } = chai;
@@ -63,6 +65,35 @@ const testCode = {
             );
             assert.isObject(httpUtil.getQueryString(url2), 'return value is Object');
             assert.property(httpUtil.getQueryString(url), 'v');
+        },
+        promiseMap: async () => {
+            const promiseMap = httpUtil.promiseMap;
+            const getFetchData = assetObject.getFetchData;
+            let {chapterUrls} = await getFetchData('story');
+            let fetchData1 = await getFetchData(chapterUrls[0]);
+            let fetchData2 = await getFetchData(chapterUrls[1]);
+            let fetchData3 = await getFetchData(chapterUrls[2]);
+            let fetchData4 = await getFetchData(chapterUrls[3]);
+            
+            const a = await promiseMap([fetchData1,fetchData2,fetchData3,fetchData4], (cur)=>{
+                return cur;
+            })
+            
+            const b = await promiseMap([fetchData1,fetchData2,fetchData3,fetchData4], (cur)=>{
+                return cur.html.split(" ")[0];
+            })
+            
+            assert.isNotObject(a);
+            assert.isArray(a);
+            assert.isArray(b);
+            assert(b != []);
+            
+            assert(b[0] !== "chapter34543")
+            assert(b[0] === "chapter1")
+            assert(b[1] === "chapter2")
+            assert(b[2] === "chapter3")
+            assert(b[3] === "chapter4")
+            
         },
     },
     dataUtil: {},
