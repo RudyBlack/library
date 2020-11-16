@@ -1,4 +1,4 @@
 import * as assetString from './string/assetString.js';
-import * as assetObject from './object/assetObject.js';
+import * as fetchData from './fetch/fetchData.js';
 
-export {assetString, assetObject}
+export {assetString, fetchData}
