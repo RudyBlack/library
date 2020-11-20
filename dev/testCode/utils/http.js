@@ -6,12 +6,9 @@ export const getQueryString = function (url) {
 
 export const promiseMap = function (vals, callback) {
     return Promise.all(
-        vals.map(function (cur) {
-            return Promise.resolve(val).then((result) => {
-                return new Promise((resolve) => {
-                    resolve(callback(result));
-                });
-            });
+        vals.map(async function (cur) {
+            let val = await cur;
+            return callback(val);
         })
     );
 };
