@@ -1,3 +1,8 @@
+//set 한번에
+ //객체로 들어오면 객체 순회해서 하나하나 값 세팅
+//저장이력 남기기.
+ // 값을 바꾸는게 아니고 push로 값을 넣게.
+ // 프록시 객체 더 공부해봐야겠군.
 export const StateManagement = ((initData) => {
     const observer = new Map();
     const dataStore = new Proxy(initData, {

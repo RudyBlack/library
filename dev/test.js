@@ -24,6 +24,18 @@ const testCode = {
       assert.isNotTrue(arrayUtil.isEmptyArray([undefined]), 'not empty');
       assert.isNotTrue(arrayUtil.isEmptyArray([NaN]), 'not empty');
     },
+    sliceArray: () => {
+        let sliceArray = arrayUtil.sliceArray;
+        let testArr = [1,2,3,4,5,6,7,8,9,10];
+        let testArr2 = [{},[],null,undefined,33,55,66];
+        assert( sliceArray(testArr, 5).length === 2 );
+        assert( sliceArray(testArr, 3).length === 4);
+        assert( sliceArray(testArr, 0) == testArr);
+        assert( sliceArray(testArr, 1).length === 10 );
+        
+        assert( sliceArray(testArr2, 2)[1][0] == null );
+        
+    }
   },
   domUtil: {
     makeDomElement: () => {
@@ -103,6 +115,16 @@ const testCode = {
     StateManagement: () => {
       const { StateManagement } = dataUtil;
       StateManagement.set(1, 2);
+        
+        
+      StateManagement.set({
+          a:1,
+          b:2,
+          "logituide" : 84,
+          "someObj" : {"a":1, b:2}
+      });
+        
+        
       assert(StateManagement.get(1) === 2);
     },
   },
@@ -128,4 +150,10 @@ const testCode = {
   },
 };
 
-Object.keys(testCode).map((cur, index) => describe(cur, () => Object.keys(testCode[cur]).map((method) => it(method, () => testCode[cur][method]()))));
+Object.keys(testCode).map((cur, index) =>  describe(cur, () => {
+        for (const method in testCode[cur]) {
+            it(method, () => {
+                testCode[cur][method]();
+            });
+        }
+    }));
