@@ -12,3 +12,13 @@ export const promiseMap = function (vals, callback) {
         })
     );
 };
+
+export const makeQueryString = function (obj) {
+    let rtnString = "";
+    
+    rtnString = Object.keys(obj)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`)
+    .join('&');
+    
+    return rtnString;
+}
