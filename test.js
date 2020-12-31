@@ -1,4 +1,4 @@
-import { arrayUtil, dataUtil, domUtil, httpUtil, stringUtil } from './testCode/index.js';
+import { arrayUtil, dataUtil, domUtil, httpUtil, stringUtil } from './components/index.js';
 import * as asset from './asset/index.js';
 
 const { assetString } = asset;
