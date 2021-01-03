@@ -1,0 +1,18 @@
+Set javascript testing enviroment.
+    v Install jest
+    v Set babel for node syntax to js syntax
+    v Set npm run script as babel
+
+
+
+
+파일에 쓰기만 하면 알아서 테스트 되게
+    컴포넌트나 모듈에 코드 작성 후 테스트 하면 테스트 케이스 작성 안해도 알아서 테스트 되게
+        디폴트로 코드에 대한 테스트케이스를 만들어놓자
+
+왜 각 모듈 접근은 index로 하는걸 권장하는걸까?
+
+빌드 배포하면 마스터에 브런치에 있는 파일 업데이트 되게
+
+자료구조, 알고리즘에 대해서 공부해서 모듈에 쏙 넣어놓기
+

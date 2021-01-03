@@ -3,43 +3,28 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "test": "mocha -r @babel/register test.js",
-        "test-json": "mocha -r @babel/register test.js --reporter json",
-        "build": "node -r @babel/register build/build.js"
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RudyBlack/library.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/RudyBlack/library/issues"
+    },
+    "homepage": "https://github.com/RudyBlack/library#readme",
+    "dependencies": {
+        "@babel/preset-env": "^7.12.11",
+        "babel-core": "^6.26.3",
+        "babel-jest": "^26.6.3",
+        "jest": "^26.6.3",
+        "regenerator-runtime": "^0.13.7"
     },
     "devDependencies": {
-        "@babel/cli": "^7.10.5",
-        "@babel/core": "^7.10.5",
-        "@babel/node": "^7.10.5",
-        "@babel/preset-env": "^7.10.4",
-        "@babel/register": "^7.10.5",
-        "chai": "^4.2.0",
-        "eslint": "^7.11.0",
-        "eslint-config-airbnb-base": "^14.2.0",
-        "eslint-plugin-import": "^2.22.1",
-        "express": "^4.17.1",
-        "jquery": "^3.5.1",
-        "jsdom": "^16.3.0",
-        "jsdom-global": "^3.0.2",
-        "mocha": "^8.0.1",
-        "mochawesome": "^6.1.1",
-        "webpack": "^5.3.2",
-        "webpack-cli": "^4.1.0"
-    },
-    "babel": {
-        "presets": [
-            [
-                "@babel/preset-env",
-                {
-                    "targets": {
-                        "chrome": "55",
-                        "esmodules": true
-                    }
-                }
-            ]
-        ],
-        "plugins": [
-            "@babel/plugin-transform-arrow-functions"
-        ]
+        "@babel/plugin-transform-modules-commonjs": "^7.12.1",
+        "babel-cli": "^6.26.0"
     }
 }
